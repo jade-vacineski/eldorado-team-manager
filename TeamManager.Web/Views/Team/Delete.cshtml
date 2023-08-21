@@ -1,0 +1,26 @@
+﻿@using TeamManager.Domain.Entities
+@model Team
+
+<div class="alert alert-danger" role="alert">
+    <i class="fa-solid fa-triangle-exclamation"></i> Após a exclusão os dados não poderão ser revertidos.
+</div>
+
+<h4>Cadastrar Equipes</h4>
+<p class="fw-medium">Confirmar exclusão de equipe</p>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Dados de Equipe</h5>
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    <li>Id: <span class="fw-bold">@Model.Id</span></li>
+                    <li>Nome: <span class="fw-bold"> @Model.Name</span></li>
+                </ul>
+            </div>
+        </div>
+        <p></p>
+        <a class="btn btn-secondary" role="button" href="@Url.Action("List")">Cancelar</a>
+        <a class="btn btn-danger" role="button" href="@Url.Action("DeleteConfirm","Team",new { id = Model.Id ,hash = ViewBag.HashId })">Excluir</a>
+    </div>
+</div>

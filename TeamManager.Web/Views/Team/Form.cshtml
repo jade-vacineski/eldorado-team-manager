@@ -1,0 +1,25 @@
+﻿@using TeamManager.Domain.Entities
+@model Team
+
+<h4>Cadastrar Equipes</h4>
+<p class="fw-medium">@(Model==null || Model.Id==0?"Nova Equipe":"Editar Equipe")</p>
+
+<form asp-action="Save" asp-antiforgery="true" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="card">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Nome da Equipe" />
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            <a class="btn btn-secondary" role="button" href="@Url.Action("List")">Cancelar</a>
+            <button class="btn btn-primary" type="submit">Salvar</button>
+        </div>
+    </div>
+</form>

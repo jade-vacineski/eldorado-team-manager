@@ -1,0 +1,9 @@
+﻿@using TeamManager.Web.Models.Team
+@model TeamListViewModel
+
+
+@foreach (var team in Model.Teams)
+{
+    <p>@team.Name</p>
+}
+

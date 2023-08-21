@@ -1,0 +1,40 @@
+﻿@using TeamManager.Web.Models.Team
+@model TeamListViewModel
+
+<h4>Cadastrar Equipes</h4>
+<p class="fw-medium">Lista das equipes cadastradas</p>
+
+<a class="btn btn-success" role="button" href="@Url.Action("New","Team")"><i class="fa-solid fa-plus"></i> Adicionar</a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col" style="width: 10%">Id</th>
+            <th scope="col" style="width: 70%">Nome</th>
+            <th scope="col" style="width: 10%; text-align:center">Editar</th>
+            <th scope="col" style="width: 10%; text-align:center">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model.Teams)
+        {
+            <tr>
+                <th scope="row" class="align-middle">@team.Id</th>
+                <td class="align-middle">@team.Name</td>
+                <td class="align-middle" style="text-align: center">
+                    <a class="btn btn-link" role="button" href="@Url.Action("Edit","Team",new { id = team.Id })">
+                        <i class="fa-sharp fa-regular fa-pen-to-square"></i>
+                    </a>
+                </td>
+                <td class="align-middle" style="text-align: center">
+                    <a class="btn btn-link" role="button" href="@Url.Action("Delete","Team",new { id = team.Id })">
+                        <i class="fa-sharp fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p class="fst-light">@Model.Teams.Count() equipes(s) cadastrada(s)</p>
+
